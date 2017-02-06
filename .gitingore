@@ -1,0 +1,93 @@
+### Application ###
+.env*
+whenever.log
+
+### MySQL Workbench ###
+*.mwb.bak
+
+### Redis Server ###
+dump.rdb
+
+### OSX ###
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# vagrant
+.vagrant
+
+# Thumbnails
+._*
+
+# Files that might appear on external disk
+.Spotlight-V100
+.Trashes
+
+.idea/
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+
+### TextMate ###
+*.tmproj
+*.tmproject
+tmtags
+
+
+### vim ###
+[._]*.s[a-w][a-z]
+[._]s[a-w][a-z]
+*.un~
+Session.vim
+.netrwhist
+*~
+
+*.rbc
+capybara-*.html
+.rspec
+/log
+/tmp
+/db/*.sqlite3
+/public/system
+/public/uploads
+/coverage/
+/spec/tmp
+**.orig
+rerun.txt
+pickle-email-*.html
+.byebug_history
+
+## Environment normalisation:
+/.bundle
+/vendor/bundle
+
+# these should all be checked in to normalise the environment:
+# Gemfile.lock, .ruby-version, .ruby-gemset
+
+# unless supporting rvm < 1.11.0 or doing something fancy, ignore this:
+.rvmrc
+
+# if using bower-rails ignore default bower_components path bower.json files
+/vendor/assets/bower_components
+*.bowerrc
+/public/assets/
+
+# react module cache
+app/assets/javascripts/admin/analysis/build/.module-cache
+
+# npm
+node_modules
+npm-debug.log
+
+# bower
+/bower_components
+
+.env
+.env.test
+
+.sass-cache/

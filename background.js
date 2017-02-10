@@ -6,18 +6,15 @@
 chrome.browserAction.onClicked.addListener(function(tab) {
   // var action_url = "javascript:window.print();";
   // chrome.tabs.update(tab.id, {url: action_url});
-  if (!chrome.current_tab_id) {
-    if (tab.url.match(/route_map/)) {
-      chrome.current_tab_id = tab.id
-      console.log(window.xx = document,window.a = window)
-      chrome.tabs.executeScript( chrome.current_tab_id, { code: 'document.getElementById("gmap_search_url").value'}, function(result) {
-        chrome.tabs.create({ url: result[0] });
-      })
-    } else {
-      alert('先在路由图下面点击!!!')
-    }
-  } else {
-    if (tab.url.match(/google/)) {
+  if (tab.url.match(/route_map/)) {
+    chrome.current_tab_id = tab.id
+    console.log(window.xx = document,window.a = window)
+    chrome.tabs.executeScript( chrome.current_tab_id, { code: 'document.getElementById("gmap_search_url").value'}, function(result) {
+      new_tab = chrome.tabs.create({ url: result[0] }, function(tab) {
+        alert('地图加载完成后再次点击便可以继续编辑')
+      });
+    })
+  } else if (tab.url.match(/google/) && chrome.current_tab_id) {
       chrome.tabs.captureVisibleTab( null, {format: 'jpeg', quality: 100}, function(dataURI) {
         if (dataURI) {
           var image = new Image();
@@ -29,10 +26,8 @@ chrome.browserAction.onClicked.addListener(function(tab) {
           chrome.tabs.remove(tab.id);
         }
       });
-
-    } else {
-      alert('请在Gmap 下点击!!!')
-    }
-    
+  } else {
+    alert('先在路由图下面点击')
   }
+
 });
